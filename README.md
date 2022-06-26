@@ -1,3 +1,3 @@
-##leave-a-mark
+# leave-a-mark
 
-#a sample spring boot app with jwt security
+### a sample spring boot app with jwt security
