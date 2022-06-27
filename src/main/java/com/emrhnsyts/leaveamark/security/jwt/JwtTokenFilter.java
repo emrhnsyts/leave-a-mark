@@ -52,19 +52,22 @@ public class JwtTokenFilter extends OncePerRequestFilter {
                 }
             }
             filterChain.doFilter(request, response);
-        } catch (SignatureException ex) {
-//            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-//            ((HttpServletResponse) response).sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid JWT signature");
-            handlerExceptionResolver.resolveException(request, response, null, ex);
-        } catch (MalformedJwtException ex) {
-            handlerExceptionResolver.resolveException(request, response, null, ex);
-        } catch (ExpiredJwtException ex) {
-            handlerExceptionResolver.resolveException(request, response, null, ex);
-        } catch (UnsupportedJwtException ex) {
-            handlerExceptionResolver.resolveException(request, response, null, ex);
-        } catch (IllegalArgumentException ex) {
+        } catch (Exception ex) {
             handlerExceptionResolver.resolveException(request, response, null, ex);
         }
+//        catch (SignatureException ex) {
+////            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+////            ((HttpServletResponse) response).sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid JWT signature");
+//            handlerExceptionResolver.resolveException(request, response, null, ex);
+//        } catch (MalformedJwtException ex) {
+//            handlerExceptionResolver.resolveException(request, response, null, ex);
+//        } catch (ExpiredJwtException ex) {
+//            handlerExceptionResolver.resolveException(request, response, null, ex);
+//        } catch (UnsupportedJwtException ex) {
+//            handlerExceptionResolver.resolveException(request, response, null, ex);
+//        } catch (IllegalArgumentException ex) {
+//            handlerExceptionResolver.resolveException(request, response, null, ex);
+//        }
 
     }
 }
